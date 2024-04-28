@@ -1,5 +1,5 @@
 ASCII2    TESTE
- int x;
+    int x;
     char ¹ºmapa[10][10];
     int i;
     int j;
@@ -43,6 +43,78 @@ ASCII2    TESTE
     ¹ºmapa[6][9]='*';
     ¹ºmapa[7][9]='*';
     ¹ºmapa[8][9]='*';
+    //preenchimento do mapa
+    ¹ºmapa[1][1]=' ';
+    ¹ºmapa[1][2]=' ';
+    ¹ºmapa[1][3]=' ';
+    ¹ºmapa[1][4]=' ';
+    ¹ºmapa[1][5]=' ';
+    ¹ºmapa[1][6]=' ';
+    ¹ºmapa[1][7]=' ';
+    ¹ºmapa[1][8]=' ';
+    //2ªlinha
+    ¹ºmapa[2][1]=' ';
+    ¹ºmapa[2][2]=' ';
+    ¹ºmapa[2][3]=' ';
+    ¹ºmapa[2][4]=' ';
+    ¹ºmapa[2][5]=' ';
+    ¹ºmapa[2][6]=' ';
+    ¹ºmapa[2][7]=' ';
+    ¹ºmapa[2][8]=' ';
+     //3ªlinha
+    ¹ºmapa[3][1]=' ';
+    ¹ºmapa[3][2]=' ';
+    ¹ºmapa[3][3]=' ';
+    ¹ºmapa[3][4]=' ';
+    ¹ºmapa[3][5]=' ';
+    ¹ºmapa[3][6]=' ';
+    ¹ºmapa[3][7]=' ';
+    ¹ºmapa[3][8]=' ';
+    //4ªlinha
+    ¹ºmapa[4][1]=' ';
+    ¹ºmapa[4][2]=' ';
+    ¹ºmapa[4][3]=' ';
+    ¹ºmapa[4][4]='&';
+    ¹ºmapa[4][5]=' ';
+    ¹ºmapa[4][6]=' ';
+    ¹ºmapa[4][7]=' ';
+    ¹ºmapa[4][8]=' ';
+    //5ªlinha
+    ¹ºmapa[5][1]=' ';
+    ¹ºmapa[5][2]=' ';
+    ¹ºmapa[5][3]=' ';
+    ¹ºmapa[5][4]=' ';
+    ¹ºmapa[5][5]=' ';
+    ¹ºmapa[5][6]=' ';
+    ¹ºmapa[5][7]=' ';
+    ¹ºmapa[5][8]=' ';
+    //6ªlinha
+    ¹ºmapa[6][1]=' ';
+    ¹ºmapa[6][2]=' ';
+    ¹ºmapa[6][3]=' ';
+    ¹ºmapa[6][4]=' ';
+    ¹ºmapa[6][5]=' ';
+    ¹ºmapa[6][6]=' ';
+    ¹ºmapa[6][7]=' ';
+    ¹ºmapa[6][8]=' ';
+    //7ªlinha
+    ¹ºmapa[7][1]=' ';
+    ¹ºmapa[7][2]=' ';
+    ¹ºmapa[7][3]=' ';
+    ¹ºmapa[7][4]=' ';
+    ¹ºmapa[7][5]=' ';
+    ¹ºmapa[7][6]=' ';
+    ¹ºmapa[7][7]=' ';
+    ¹ºmapa[7][8]=' ';
+    //8ªlinha
+    ¹ºmapa[8][1]=' ';
+    ¹ºmapa[8][2]=' ';
+    ¹ºmapa[8][3]=' ';
+    ¹ºmapa[8][4]=' ';
+    ¹ºmapa[8][5]=' ';
+    ¹ºmapa[8][6]=' ';
+    ¹ºmapa[8][7]=' ';
+    ¹ºmapa[8][8]=' ';
     
     x=0;
     i=0;
@@ -62,12 +134,16 @@ ASCII2    TESTE
         if(x==1){
             for(i=0;i<10;i++){
                 for(j=0;j<10;j++){
-                    printf("%c ",¹ºmapa[i][j]);
+                    printf("%c",¹ºmapa[i][j]);
+                    
                 }
                 printf("\n");
             }
         }else if(x==2){
-            
+            printf("Pressione WASD para se mover\nAperte I para interagir com o objeto acima de voce\n");
+        }else if(x==3){
+            printf("Desligando o jogo...");
+           
         }
    
    }
