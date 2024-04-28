@@ -1,8 +1,12 @@
 ASCII2    TESTE
     int x;
     char ¹ºmapa[10][10];
-    int i;
-    int j;
+    int i1;
+    int j1;
+    char move;
+    int moveVert;
+    int moveHori;
+    int cont_¹ºmapa;
     //teto
     ¹ºmapa[0][0]='*';
     ¹ºmapa[0][1]='*';
@@ -117,9 +121,10 @@ ASCII2    TESTE
     ¹ºmapa[8][8]=' ';
     
     x=0;
-    i=0;
-    j=0;
-    
+    i1=0;
+    j1=0;
+    moveVert=4;
+    moveHori=4;
     for(x=0;x!=3;){
        //menu de começo
         printf("*********\n");
@@ -131,19 +136,62 @@ ASCII2    TESTE
         printf("2) Tutorial\n");
         printf("3) Sair\n");
         scanf("%d",&x);
+        //Começar o jogo
         if(x==1){
-            for(i=0;i<10;i++){
-                for(j=0;j<10;j++){
-                    printf("%c",¹ºmapa[i][j]);
-                    
-                }
+            //Desenhar o mapa
+            for(i1=0;i1<10;i1++){
+                for(j1=0;j1<10;j1++){
+                    printf("%c",¹ºmapa[i1][j1]);
+                }    
                 printf("\n");
             }
-        }else if(x==2){
+            //Codigo de movemento
+            for(cont_¹ºmapa=0;cont_¹ºmapa<1;){
+                scanf(" %c",&move);
+                if(move=='w'){
+                    if(¹ºmapa[moveVert-1][moveHori]==' '){
+                        ¹ºmapa[moveVert-1][moveHori]='&';
+                        ¹ºmapa[moveVert][moveHori]=' ';
+                        moveVert--;
+                    }
+                }
+                else if(move=='s'){
+                        if(¹ºmapa[moveVert+1][moveHori]==' '){
+                            ¹ºmapa[moveVert+1][moveHori]='&';
+                            ¹ºmapa[moveVert][moveHori]=' ';
+                            moveVert++;
+                        }
+                }
+                else if(move=='d'){
+                        if(¹ºmapa[moveVert][moveHori+1]==' '){
+                            ¹ºmapa[moveVert][moveHori+1]='&';
+                            ¹ºmapa[moveVert][moveHori]=' ';
+                            moveHori++;
+                        }
+                }
+                else if(move=='a'){
+                        if(¹ºmapa[moveVert][moveHori-1]==' '){
+                            ¹ºmapa[moveVert][moveHori-1]='&';
+                            ¹ºmapa[moveVert][moveHori]=' ';
+                            moveHori--;
+                        }
+                }
+                system("CLS");
+                for(i1=0;i1<10;i1++){
+                    for(j1=0;j1<10;j1++){
+                     printf("%c",¹ºmapa[i1][j1]);
+                    }    
+                    printf("\n");
+                }
+            }   
+        }
+        //Tutorial
+        else if(x==2){
             printf("Pressione WASD para se mover\nAperte I para interagir com o objeto acima de voce\n");
-        }else if(x==3){
+        }
+        //Termino
+        else if(x==3){
             printf("Desligando o jogo...");
-           
         }
    
    }
