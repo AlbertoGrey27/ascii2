@@ -1,6 +1,6 @@
 ASCII2    TESTE
-  int x;
-    int ¹ºmapa[10][10];
+ int x;
+    char ¹ºmapa[10][10];
     int i;
     int j;
     //teto
@@ -25,6 +25,24 @@ ASCII2    TESTE
     ¹ºmapa[8][0]='*';
     ¹ºmapa[9][0]='*';
     //chão
+    ¹ºmapa[9][1]='*';
+    ¹ºmapa[9][2]='*';
+    ¹ºmapa[9][3]='*';
+    ¹ºmapa[9][4]='*';
+    ¹ºmapa[9][5]='*';
+    ¹ºmapa[9][6]='*';
+    ¹ºmapa[9][7]='*';
+    ¹ºmapa[9][8]='*';
+    ¹ºmapa[9][9]='*';
+    //parede direita
+    ¹ºmapa[1][9]='*';
+    ¹ºmapa[2][9]='*';
+    ¹ºmapa[3][9]='*';
+    ¹ºmapa[4][9]='*';
+    ¹ºmapa[5][9]='*';
+    ¹ºmapa[6][9]='*';
+    ¹ºmapa[7][9]='*';
+    ¹ºmapa[8][9]='*';
     
     x=0;
     i=0;
@@ -43,8 +61,8 @@ ASCII2    TESTE
         scanf("%d",&x);
         if(x==1){
             for(i=0;i<10;i++){
-                for(j=0;j<10;J++){
-                    printf("%d ",¹ºmapa[i][j]);
+                for(j=0;j<10;j++){
+                    printf("%c ",¹ºmapa[i][j]);
                 }
                 printf("\n");
             }
