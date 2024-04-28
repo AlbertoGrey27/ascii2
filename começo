@@ -1,124 +1,131 @@
 ASCII2    TESTE
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#include <conio.h>
+int main()
+{   
     int x;
-    char ¹ºmapa[10][10];
+    char mapa[10][10];
     int i1;
     int j1;
     char move;
     int moveVert;
     int moveHori;
-    int cont_¹ºmapa;
+    int cont_mapa;
+    char interacao;
     //teto
-    ¹ºmapa[0][0]='*';
-    ¹ºmapa[0][1]='*';
-    ¹ºmapa[0][2]='*';
-    ¹ºmapa[0][3]='*';
-    ¹ºmapa[0][4]='*';
-    ¹ºmapa[0][5]='*';
-    ¹ºmapa[0][6]='*';
-    ¹ºmapa[0][7]='*';
-    ¹ºmapa[0][8]='*';
-    ¹ºmapa[0][9]='*';
+    mapa[0][0]='*';
+    mapa[0][1]='*';
+    mapa[0][2]='*';
+    mapa[0][3]='*';
+    mapa[0][4]='D';
+    mapa[0][5]='*';
+    mapa[0][6]='*';
+    mapa[0][7]='*';
+	mapa[0][8]='*';
+    mapa[0][9]='*';
     //parede esquerda
-    ¹ºmapa[1][0]='*';
-    ¹ºmapa[2][0]='*';
-    ¹ºmapa[3][0]='*';
-    ¹ºmapa[4][0]='*';
-    ¹ºmapa[5][0]='*';
-    ¹ºmapa[6][0]='*';
-    ¹ºmapa[7][0]='*';
-    ¹ºmapa[8][0]='*';
-    ¹ºmapa[9][0]='*';
+    mapa[1][0]='*';
+    mapa[2][0]='*';
+    mapa[3][0]='*';
+    mapa[4][0]='*';
+    mapa[5][0]='*';
+    mapa[6][0]='*';
+    mapa[7][0]='*';
+    mapa[8][0]='*';
+    mapa[9][0]='*';
     //chão
-    ¹ºmapa[9][1]='*';
-    ¹ºmapa[9][2]='*';
-    ¹ºmapa[9][3]='*';
-    ¹ºmapa[9][4]='*';
-    ¹ºmapa[9][5]='*';
-    ¹ºmapa[9][6]='*';
-    ¹ºmapa[9][7]='*';
-    ¹ºmapa[9][8]='*';
-    ¹ºmapa[9][9]='*';
+    mapa[9][1]='*';
+    mapa[9][2]='*';
+    mapa[9][3]='*';
+    mapa[9][4]='*';
+    mapa[9][5]='*';
+    mapa[9][6]='*';
+    mapa[9][7]='*';
+    mapa[9][8]='*';
+    mapa[9][9]='*';
     //parede direita
-    ¹ºmapa[1][9]='*';
-    ¹ºmapa[2][9]='*';
-    ¹ºmapa[3][9]='*';
-    ¹ºmapa[4][9]='*';
-    ¹ºmapa[5][9]='*';
-    ¹ºmapa[6][9]='*';
-    ¹ºmapa[7][9]='*';
-    ¹ºmapa[8][9]='*';
+    mapa[1][9]='*';
+    mapa[2][9]='*';
+    mapa[3][9]='*';
+    mapa[4][9]='*';
+    mapa[5][9]='*';
+    mapa[6][9]='*';
+    mapa[7][9]='*';
+    mapa[8][9]='*';
     //preenchimento do mapa
-    ¹ºmapa[1][1]=' ';
-    ¹ºmapa[1][2]=' ';
-    ¹ºmapa[1][3]=' ';
-    ¹ºmapa[1][4]=' ';
-    ¹ºmapa[1][5]=' ';
-    ¹ºmapa[1][6]=' ';
-    ¹ºmapa[1][7]=' ';
-    ¹ºmapa[1][8]=' ';
+    mapa[1][1]=' ';
+    mapa[1][2]=' ';
+    mapa[1][3]=' ';
+    mapa[1][4]=' ';
+    mapa[1][5]=' ';
+    mapa[1][6]=' ';
+    mapa[1][7]=' ';
+    mapa[1][8]=' ';
     //2ªlinha
-    ¹ºmapa[2][1]=' ';
-    ¹ºmapa[2][2]=' ';
-    ¹ºmapa[2][3]=' ';
-    ¹ºmapa[2][4]=' ';
-    ¹ºmapa[2][5]=' ';
-    ¹ºmapa[2][6]=' ';
-    ¹ºmapa[2][7]=' ';
-    ¹ºmapa[2][8]=' ';
+    mapa[2][1]=' ';
+    mapa[2][2]=' ';
+    mapa[2][3]=' ';
+    mapa[2][4]=' ';
+    mapa[2][5]=' ';
+    mapa[2][6]=' ';
+    mapa[2][7]=' ';
+    mapa[2][8]=' ';
      //3ªlinha
-    ¹ºmapa[3][1]=' ';
-    ¹ºmapa[3][2]=' ';
-    ¹ºmapa[3][3]=' ';
-    ¹ºmapa[3][4]=' ';
-    ¹ºmapa[3][5]=' ';
-    ¹ºmapa[3][6]=' ';
-    ¹ºmapa[3][7]=' ';
-    ¹ºmapa[3][8]=' ';
+    mapa[3][1]=' ';
+    mapa[3][2]=' ';
+    mapa[3][3]=' ';
+    mapa[3][4]=' ';
+    mapa[3][5]=' ';
+    mapa[3][6]=' ';
+    mapa[3][7]=' ';
+    mapa[3][8]=' ';
     //4ªlinha
-    ¹ºmapa[4][1]=' ';
-    ¹ºmapa[4][2]=' ';
-    ¹ºmapa[4][3]=' ';
-    ¹ºmapa[4][4]='&';
-    ¹ºmapa[4][5]=' ';
-    ¹ºmapa[4][6]=' ';
-    ¹ºmapa[4][7]=' ';
-    ¹ºmapa[4][8]=' ';
+    mapa[4][1]=' ';
+    mapa[4][2]=' ';
+    mapa[4][3]=' ';
+    mapa[4][4]='&';
+    mapa[4][5]=' ';
+    mapa[4][6]=' ';
+    mapa[4][7]=' ';
+    mapa[4][8]=' ';
     //5ªlinha
-    ¹ºmapa[5][1]=' ';
-    ¹ºmapa[5][2]=' ';
-    ¹ºmapa[5][3]=' ';
-    ¹ºmapa[5][4]=' ';
-    ¹ºmapa[5][5]=' ';
-    ¹ºmapa[5][6]=' ';
-    ¹ºmapa[5][7]=' ';
-    ¹ºmapa[5][8]=' ';
+    mapa[5][1]=' ';
+    mapa[5][2]=' ';
+    mapa[5][3]=' ';
+    mapa[5][4]=' ';
+    mapa[5][5]=' ';
+    mapa[5][6]=' ';
+    mapa[5][7]=' ';
+    mapa[5][8]=' ';
     //6ªlinha
-    ¹ºmapa[6][1]=' ';
-    ¹ºmapa[6][2]=' ';
-    ¹ºmapa[6][3]=' ';
-    ¹ºmapa[6][4]=' ';
-    ¹ºmapa[6][5]=' ';
-    ¹ºmapa[6][6]=' ';
-    ¹ºmapa[6][7]=' ';
-    ¹ºmapa[6][8]=' ';
+    mapa[6][1]=' ';
+    mapa[6][2]=' ';
+    mapa[6][3]=' ';
+    mapa[6][4]=' ';
+    mapa[6][5]=' ';
+    mapa[6][6]=' ';
+    mapa[6][7]=' ';
+    mapa[6][8]=' ';
     //7ªlinha
-    ¹ºmapa[7][1]=' ';
-    ¹ºmapa[7][2]=' ';
-    ¹ºmapa[7][3]=' ';
-    ¹ºmapa[7][4]=' ';
-    ¹ºmapa[7][5]=' ';
-    ¹ºmapa[7][6]=' ';
-    ¹ºmapa[7][7]=' ';
-    ¹ºmapa[7][8]=' ';
+    mapa[7][1]=' ';
+    mapa[7][2]=' ';
+    mapa[7][3]=' ';
+    mapa[7][4]=' ';
+    mapa[7][5]=' ';
+    mapa[7][6]=' ';
+    mapa[7][7]=' ';
+    mapa[7][8]=' ';
     //8ªlinha
-    ¹ºmapa[8][1]=' ';
-    ¹ºmapa[8][2]=' ';
-    ¹ºmapa[8][3]=' ';
-    ¹ºmapa[8][4]=' ';
-    ¹ºmapa[8][5]=' ';
-    ¹ºmapa[8][6]=' ';
-    ¹ºmapa[8][7]=' ';
-    ¹ºmapa[8][8]=' ';
+    mapa[8][1]='@';
+    mapa[8][2]=' ';
+    mapa[8][3]=' ';
+    mapa[8][4]=' ';
+    mapa[8][5]=' ';
+	mapa[8][6]=' ';
+    mapa[8][7]=' ';
+    mapa[8][8]=' ';
     
     x=0;
     i1=0;
@@ -141,47 +148,56 @@ ASCII2    TESTE
             //Desenhar o mapa
             for(i1=0;i1<10;i1++){
                 for(j1=0;j1<10;j1++){
-                    printf("%c",¹ºmapa[i1][j1]);
+                    printf("%c",mapa[i1][j1]);
                 }    
                 printf("\n");
             }
             //Codigo de movemento
-            for(cont_¹ºmapa=0;cont_¹ºmapa<1;){
-                scanf(" %c",&move);
+            
+            for(cont_mapa=0;cont_mapa<1;){
+                move=getch();
                 if(move=='w'){
-                    if(¹ºmapa[moveVert-1][moveHori]==' '){
-                        ¹ºmapa[moveVert-1][moveHori]='&';
-                        ¹ºmapa[moveVert][moveHori]=' ';
+                    if(mapa[moveVert-1][moveHori]==' ' || mapa[moveVert-1][moveHori]=='@' || mapa[moveVert-1][moveHori]=='='){
+                        mapa[moveVert-1][moveHori]='&';
+                        mapa[moveVert][moveHori]=' ';
                         moveVert--;
                     }
                 }
                 else if(move=='s'){
-                        if(¹ºmapa[moveVert+1][moveHori]==' '){
-                            ¹ºmapa[moveVert+1][moveHori]='&';
-                            ¹ºmapa[moveVert][moveHori]=' ';
+                        if(mapa[moveVert+1][moveHori]==' ' || mapa[moveVert+1][moveHori]=='@' || mapa[moveVert+1][moveHori]=='='){
+                            mapa[moveVert+1][moveHori]='&';
+                            mapa[moveVert][moveHori]=' ';
                             moveVert++;
                         }
                 }
                 else if(move=='d'){
-                        if(¹ºmapa[moveVert][moveHori+1]==' '){
-                            ¹ºmapa[moveVert][moveHori+1]='&';
-                            ¹ºmapa[moveVert][moveHori]=' ';
+                        if(mapa[moveVert][moveHori+1]==' ' || mapa[moveVert][moveHori+1]=='@' || mapa[moveVert][moveHori+1]=='='){
+                            mapa[moveVert][moveHori+1]='&';
+                            mapa[moveVert][moveHori]=' ';
                             moveHori++;
                         }
                 }
                 else if(move=='a'){
-                        if(¹ºmapa[moveVert][moveHori-1]==' '){
-                            ¹ºmapa[moveVert][moveHori-1]='&';
-                            ¹ºmapa[moveVert][moveHori]=' ';
+                        if(mapa[moveVert][moveHori-1]==' ' || mapa[moveVert][moveHori-1]=='@' || mapa[moveVert][moveHori-1]=='='){
+                            mapa[moveVert][moveHori-1]='&';
+                            mapa[moveVert][moveHori]=' ';
                             moveHori--;
                         }
                 }
+                else if(mapa[8][1]==' '){
+                	mapa[0][4]='=';
+				}
+				if(mapa[0][4]=='&'){
+					cont_mapa++;
+				}
+                system("cls");
                 for(i1=0;i1<10;i1++){
                     for(j1=0;j1<10;j1++){
-                     printf("%c",¹ºmapa[i1][j1]);
+                     printf("%c",mapa[i1][j1]);
                     }    
                     printf("\n");
                 }
+                
             }   
         }
         //Tutorial
@@ -194,3 +210,5 @@ ASCII2    TESTE
         }
    
    }
+    return 0;
+}
