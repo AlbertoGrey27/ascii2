@@ -1,6 +1,34 @@
 ASCII2    TESTE
   int x;
+    int ¹ºmapa[10][10];
+    int i;
+    int j;
+    //teto
+    ¹ºmapa[0][0]='*';
+    ¹ºmapa[0][1]='*';
+    ¹ºmapa[0][2]='*';
+    ¹ºmapa[0][3]='*';
+    ¹ºmapa[0][4]='*';
+    ¹ºmapa[0][5]='*';
+    ¹ºmapa[0][6]='*';
+    ¹ºmapa[0][7]='*';
+    ¹ºmapa[0][8]='*';
+    ¹ºmapa[0][9]='*';
+    //parede esquerda
+    ¹ºmapa[1][0]='*';
+    ¹ºmapa[2][0]='*';
+    ¹ºmapa[3][0]='*';
+    ¹ºmapa[4][0]='*';
+    ¹ºmapa[5][0]='*';
+    ¹ºmapa[6][0]='*';
+    ¹ºmapa[7][0]='*';
+    ¹ºmapa[8][0]='*';
+    ¹ºmapa[9][0]='*';
+    //chão
+    
     x=0;
+    i=0;
+    j=0;
     
     for(x=0;x!=3;){
        //menu de começo
@@ -13,3 +41,15 @@ ASCII2    TESTE
         printf("2) Tutorial\n");
         printf("3) Sair\n");
         scanf("%d",&x);
+        if(x==1){
+            for(i=0;i<10;i++){
+                for(j=0;j<10;J++){
+                    printf("%d ",¹ºmapa[i][j]);
+                }
+                printf("\n");
+            }
+        }else if(x==2){
+            
+        }
+   
+   }
