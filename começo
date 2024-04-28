@@ -202,7 +202,12 @@ int main()
         }
         //Tutorial
         else if(x==2){
-            printf("Pressione WASD para se mover\nAperte I para interagir com o objeto acima de voce\n");
+            printf("\n\t****************************************************\n");
+            printf("\t****************************************************\n");
+            printf("\tPressione WASD para se mover\n");
+            printf("\tAperte I para interagir com o objeto acima de voce\n");
+            printf("\t****************************************************\n");
+            printf("\t****************************************************\n\n");
         }
         //Termino
         else if(x==3){
