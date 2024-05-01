@@ -205,15 +205,17 @@ int main()
         }
         //Tutorial
         else if(x==2){
-            printf("\n\t****************************************************\n");
-            printf("\t****************************************************\n");
-            printf("\t****************************************************\n");
-	    printf("\tPressione WASD para se mover\n");
-            printf("\tAperte I para interagir com o objeto acima de voce\n");
-            printf("\tSe você tocar em um espinho, você recomeça a fase(se tocar 3x, o jogo reinicia).\n");
-	    printf("\tSe um monstro tocar em você, você recomeça a fase.\n");
-            printf("\t****************************************************\n");
-            printf("\t****************************************************\n\n");
+            printf("\n\t@@====================================================@@");
+	      printf("\n\t||****************************************************||\n");
+            printf("\t||****************************************************||\n");
+            printf("\t||****************************************************||\n");
+	    printf("\t o Pressione WASD para se mover\n");
+            printf("\t o Aperte I para interagir com o objeto acima de voce\n");
+            printf("\t o Se voce tocar em um espinho, voce recomeca a fase(se tocar 3x, o jogo reinicia).\n");
+	    printf("\t o Se um monstro tocar em voce, voce recomeca a fase.\n");
+            printf("\t||****************************************************||\n");
+            printf("\t||****************************************************||\n");
+	        printf("\t@@====================================================@@\n\n");
 
         }
         //Termino
