@@ -10,10 +10,14 @@ int main()
     char mapa2[20][20];
     int i1;
     int j1;
+    int i2;
+    int j2;
+    
     char move;
     int moveVert;
     int moveHori;
     int cont_mapa;
+    int cont_mapa2;
     char interacao;
     //teto
     mapa[0][0]='*';
@@ -127,6 +131,28 @@ int main()
 	mapa[8][6]=' ';
     mapa[8][7]=' ';
     mapa[8][8]=' ';
+    //prenchimento do mapa2
+    for(i2=0;i2<20;i2++){
+                for(j2=0;j2<20;j2++){
+                	if((i2==0 || i2==19) || j2==0 || j2==19 ){
+                 	 mapa2[i2][j2]='*';
+					}
+					else if(j2<19 || j2>0 && i2 != 0 || i2!= 19){
+						mapa2[i2][j2]=' ';
+					}   
+                }    
+                printf("\n");
+            }
+    mapa2[3][1]='*';
+    mapa2[3][2]='*';
+	mapa2[3][3]='D';        
+    mapa2[3][4]='*';
+    mapa2[3][5]='*';
+    mapa2[3][6]='*';
+    mapa2[1][6]='*';
+    mapa2[2][6]='*';
+    mapa2[0][13]='D';
+    mapa2[1][13]='#';
     
     x=0;
     i1=0;
@@ -135,17 +161,17 @@ int main()
     moveHori=4;
     for(x=0;x!=3;){
        //menu de começo
-        printf("@=====================@\n");
-	printf("|*********************|\n");
+         printf("@=====================@\n");
+		printf("|*********************|\n");
         printf("|********ASCII********|\n");
         printf("|*******VENTURA*******|\n");
         printf("|**********2**********|\n");
         printf("|*********************|\n");
         printf("@=====================@\n");
         printf("\\--------START--------/\n\n");
-        printf(" 1) Comecar\n");
-        printf(" 2) Tutorial\n");
-        printf(" 3) Sair\n");
+        printf("1) Comecar\n");
+        printf("2) Tutorial\n");
+        printf("3) Sair\n");
         scanf("%d",&x);
         //Começar o jogo
         if(x==1){
@@ -157,7 +183,7 @@ int main()
                 printf("\n");
             }
             //Codigo de movemento
-            
+    
             for(cont_mapa=0;cont_mapa<1;){
                 move=getch();
                 if(move=='w'){
@@ -191,21 +217,74 @@ int main()
                 else if(move=='i'){
                 	if(mapa[8][1]==' '){
                 		mapa[0][4]='=';
-			}	
+					}	
+				}
+				if(mapa[0][4]=='&'){
+				cont_mapa++;
+				}
+                	system("cls");
+                	for(i1=0;i1<10;i1++){
+                   		for(j1=0;j1<10;j1++){
+                    		printf("%c",mapa[i1][j1]);
+                    	}    
+                    	printf("\n");
+                	} 
+            }
+            mapa[0][4]=' ';
+            //começo do mapa 2
+            i2=0;
+    		j2=0;
+    		moveVert=9;
+   			moveHori=9;
+   			mapa2[9][9]='&';
+            for(i2=0;i2<20;i2++){
+               	for(j2=0;j2<20;j2++){
+					printf("%c",mapa2[i2][j2]);   
+           		}    
+               	printf("\n");
+           	}
+				for(cont_mapa2=0;cont_mapa2<1;){
+					move=getch();
+                	if(move=='w'){
+                    	if(mapa2[moveVert-1][moveHori]==' ' || mapa2[moveVert-1][moveHori]=='@' || mapa2[moveVert-1][moveHori]=='='){
+                        	mapa2[moveVert-1][moveHori]='&';
+                        	mapa2[moveVert][moveHori]=' ';
+                        	moveVert--;
+                    	}
+                	}
+                	else if(move=='s'){
+                    	    if(mapa2[moveVert+1][moveHori]==' ' || mapa2[moveVert+1][moveHori]=='@' || mapa2[moveVert+1][moveHori]=='='){
+                        	    mapa2[moveVert+1][moveHori]='&';
+                        	    mapa2[moveVert][moveHori]=' ';
+                        	    moveVert++;
+                        	}
+                	}
+                	else if(move=='d'){
+                    	    if(mapa2[moveVert][moveHori+1]==' ' || mapa2[moveVert][moveHori+1]=='@' || mapa2[moveVert][moveHori+1]=='='){
+                        	    mapa2[moveVert][moveHori+1]='&';
+                            	mapa2[moveVert][moveHori]=' ';
+                            	moveHori++;
+                        	}
+                	}
+                	else if(move=='a'){
+                    	    if(mapa2[moveVert][moveHori-1]==' ' || mapa2[moveVert][moveHori-1]=='@' || mapa2[moveVert][moveHori-1]=='='){
+                            mapa2[moveVert][moveHori-1]='&';
+                            mapa2[moveVert][moveHori]=' ';
+                            moveHori--;
+                        	}
+                	}
+                	
+					
+                	system("cls");
+                	for(i2=0;i2<20;i2++){
+                   		for(j2=0;j2<20;j2++){
+                    		printf("%c",mapa2[i2][j2]);
+                    	}    
+                    	printf("\n");
+                	} 
+            	}
 		}
-		if(mapa[0][4]=='&'){
-		cont_mapa++;
-		}
-                system("cls");
-                for(i1=0;i1<10;i1++){
-                    for(j1=0;j1<10;j1++){
-                     printf("%c",mapa[i1][j1]);
-                    }    
-                    printf("\n");
-                }
-                
-            }   
-        }
+    
         //Tutorial
         else if(x==2){
             printf("\n\t@@====================================================@@");
@@ -219,7 +298,7 @@ int main()
             printf("\t||****************************************************||\n");
             printf("\t||****************************************************||\n");
 	        printf("\t@@====================================================@@\n\n");
-
+			
         }
         //Termino
         else if(x==3){
