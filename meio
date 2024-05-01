@@ -7,6 +7,7 @@ int main()
 {   
     int x;
     char mapa[10][10];
+    char mapa2[20][20];
     int i1;
     int j1;
     char move;
@@ -206,10 +207,14 @@ int main()
         else if(x==2){
             printf("\n\t****************************************************\n");
             printf("\t****************************************************\n");
-            printf("\tPressione WASD para se mover\n");
+            printf("\t****************************************************\n");
+	    printf("\tPressione WASD para se mover\n");
             printf("\tAperte I para interagir com o objeto acima de voce\n");
+            printf("\tSe você tocar em um espinho, você recomeça a fase(se tocar 3x, o jogo reinicia).\n");
+	    printf("\tSe um monstro tocar em você, você recomeça a fase.\n");
             printf("\t****************************************************\n");
             printf("\t****************************************************\n\n");
+
         }
         //Termino
         else if(x==3){
