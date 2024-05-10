@@ -5,9 +5,8 @@ ASCII2    TESTE
 #include <conio.h>
 int main()
 {   
-    int x;
+    int input;
     char mapa[10][10];
-    char mapa2[20][20];
     int i1;
     int j1;
     int i2;
@@ -16,10 +15,17 @@ int main()
     char move;
     int moveVert;
     int moveHori;
+    int moveMon;
+	int moveMonV;
+    int moveMonH;
     int cont_mapa;
     int cont_mapa2;
+    int mortes;
     char interacao;
-    //teto
+    
+	srand(time(0)); //tempo
+	
+	//teto
     mapa[0][0]='*';
     mapa[0][1]='*';
     mapa[0][2]='*';
@@ -132,36 +138,38 @@ int main()
     mapa[8][7]=' ';
     mapa[8][8]=' ';
     //prenchimento do mapa2
-    for(i2=0;i2<20;i2++){
-                for(j2=0;j2<20;j2++){
-                	if((i2==0 || i2==19) || j2==0 || j2==19 ){
-                 	 mapa2[i2][j2]='*';
-					}
-					else if(j2<19 || j2>0 && i2 != 0 || i2!= 19){
-						mapa2[i2][j2]=' ';
-					}   
-                }    
-                printf("\n");
-            }
-    mapa2[3][1]='*';
-    mapa2[3][2]='*';
-	mapa2[3][3]='D';        
-    mapa2[3][4]='*';
-    mapa2[3][5]='*';
-    mapa2[3][6]='*';
-    mapa2[1][6]='*';
-    mapa2[2][6]='*';
-    mapa2[0][13]='D';
-    mapa2[1][13]='#';
-    
-    x=0;
+    char mapa2[20][20] = {
+	 "**************=*****",
+	 "*O  *        ###   *",
+	 "*   *              *",
+	 "**D**              *",
+	 "*                 &*",
+	 "*                  *",
+	 "*        ###       *",
+	 "*       #          *",
+	 "*       #          *",
+	 "*                  *",
+	 "*               ###*",
+	 "*           ####   *",
+	 "*X          #      *",
+	 "*           #      *",
+	 "*           #      *",
+	 "*                  *",
+	 "*            ***#***",
+	 "*            *     *",
+	 "*  @         *  O  *",
+	 "********************"
+	 };
+	
+	mortes=0;
+    input=0;
     i1=0;
     j1=0;
     moveVert=4;
     moveHori=4;
-    for(x=0;x!=3;){
+    for(input=0;input!=3;){
        //menu de começo
-         printf("@=====================@\n");
+		printf("@=====================@\n");
 		printf("|*********************|\n");
         printf("|********ASCII********|\n");
         printf("|*******VENTURA*******|\n");
@@ -172,9 +180,9 @@ int main()
         printf("1) Comecar\n");
         printf("2) Tutorial\n");
         printf("3) Sair\n");
-        scanf("%d",&x);
+        scanf("%d",&input);
         //Começar o jogo
-        if(x==1){
+        if(input==1){
             //Desenhar o mapa
             for(i1=0;i1<10;i1++){
                 for(j1=0;j1<10;j1++){
@@ -182,7 +190,7 @@ int main()
                 }    
                 printf("\n");
             }
-            //Codigo de movemento
+            //Codigo de movimento
     
             for(cont_mapa=0;cont_mapa<1;){
                 move=getch();
@@ -215,7 +223,7 @@ int main()
                         }
                 }
                 else if(move=='i'){
-                	if(mapa[8][1]==' '){
+                	if(mapa[8][1]==' ' && mapa[1][4]=='&'){
                 		mapa[0][4]='=';
 					}	
 				}
@@ -234,74 +242,210 @@ int main()
             //começo do mapa 2
             i2=0;
     		j2=0;
-    		moveVert=9;
-   			moveHori=9;
-   			mapa2[9][9]='&';
+    		moveVert=4;
+   			moveHori=18;
+   			moveMonV=12;
+    		moveMonH=1;
+   		
+   			mapa2[4][18]='&';
             for(i2=0;i2<20;i2++){
                	for(j2=0;j2<20;j2++){
-					printf("%c",mapa2[i2][j2]);   
+					printf("%c ",mapa2[i2][j2]);   
            		}    
                	printf("\n");
            	}
-				for(cont_mapa2=0;cont_mapa2<1;){
+				for(cont_mapa2=0;cont_mapa2<1 && mortes<3 ;){
+					
 					move=getch();
                 	if(move=='w'){
-                    	if(mapa2[moveVert-1][moveHori]==' ' || mapa2[moveVert-1][moveHori]=='@' || mapa2[moveVert-1][moveHori]=='='){
+                		if(mapa2[moveVert-1][moveHori]=='#' || mapa2[moveVert-1][moveHori]=='X'){
+                			mapa2[moveVert][moveHori]=' ';
+                			mapa2[moveMonV][moveMonH]=' ';
+                			moveVert=4;
+   							moveHori=18;
+   							moveMonV=12;
+    						moveMonH=1;
+    						mapa2[moveVert][moveHori]='&';
+                			mapa2[moveMonV][moveMonH]='X';
+                			mortes++;
+						}
+                    	if(mapa2[moveVert-1][moveHori]==' ' || mapa2[moveVert-1][moveHori]=='@' || mapa2[moveVert-1][moveHori]=='=' || mapa2[moveVert-1][moveHori]=='O'){
                         	mapa2[moveVert-1][moveHori]='&';
                         	mapa2[moveVert][moveHori]=' ';
                         	moveVert--;
                     	}
                 	}
                 	else if(move=='s'){
-                    	    if(mapa2[moveVert+1][moveHori]==' ' || mapa2[moveVert+1][moveHori]=='@' || mapa2[moveVert+1][moveHori]=='='){
+                			if(mapa2[moveVert+1][moveHori]=='#' || mapa2[moveVert+1][moveHori]=='X'){
+                				mapa2[moveVert][moveHori]=' ';
+                				mapa2[moveMonV][moveMonH]=' ';
+                				moveVert=4;
+   								moveHori=18;
+   								moveMonV=12;
+    							moveMonH=1;
+    							mapa2[moveVert][moveHori]='&';
+                				mapa2[moveMonV][moveMonH]='X';
+                				mortes++;
+							}
+                    	    if(mapa2[moveVert+1][moveHori]==' ' || mapa2[moveVert+1][moveHori]=='@' || mapa2[moveVert+1][moveHori]=='=' || mapa2[moveVert+1][moveHori]=='O'){
                         	    mapa2[moveVert+1][moveHori]='&';
                         	    mapa2[moveVert][moveHori]=' ';
                         	    moveVert++;
                         	}
                 	}
                 	else if(move=='d'){
-                    	    if(mapa2[moveVert][moveHori+1]==' ' || mapa2[moveVert][moveHori+1]=='@' || mapa2[moveVert][moveHori+1]=='='){
+                			if(mapa2[moveVert][moveHori+1]=='#' || mapa2[moveVert][moveHori+1]=='X'){
+                				mapa2[moveVert][moveHori]=' ';
+                				mapa2[moveMonV][moveMonH]=' ';
+                				moveVert=4;
+   								moveHori=18;
+   								moveMonV=12;
+    							moveMonH=1;
+    							mapa2[moveVert][moveHori]='&';
+                				mapa2[moveMonV][moveMonH]='X';
+                				mortes++;
+							}
+                    	    if(mapa2[moveVert][moveHori+1]==' ' || mapa2[moveVert][moveHori+1]=='@' || mapa2[moveVert][moveHori+1]=='=' || mapa2[moveVert][moveHori+1]=='O'){
                         	    mapa2[moveVert][moveHori+1]='&';
                             	mapa2[moveVert][moveHori]=' ';
                             	moveHori++;
                         	}
                 	}
                 	else if(move=='a'){
-                    	    if(mapa2[moveVert][moveHori-1]==' ' || mapa2[moveVert][moveHori-1]=='@' || mapa2[moveVert][moveHori-1]=='='){
+                			if(mapa2[moveVert][moveHori-1]=='#' || mapa2[moveVert][moveHori-1]=='X'){
+                				mapa2[moveVert][moveHori]=' ';
+                				mapa2[moveMonV][moveMonH]=' ';
+                				moveVert=4;
+   								moveHori=18;
+   								moveMonV=12;
+    							moveMonH=1;
+    							mapa2[moveVert][moveHori]='&';
+                				mapa2[moveMonV][moveMonH]='X';
+                				mortes++;
+							}
+                    	    if(mapa2[moveVert][moveHori-1]==' ' || mapa2[moveVert][moveHori-1]=='@' || mapa2[moveVert][moveHori-1]=='=' || mapa2[moveVert][moveHori-1]=='O'){
                             mapa2[moveVert][moveHori-1]='&';
                             mapa2[moveVert][moveHori]=' ';
                             moveHori--;
                         	}
                 	}
+                	else if(move=='i'){
+                		if(mapa2[18][3]==' ' && mapa2[4][2]=='&'){
+                			mapa2[3][2]='=';
+						}
+					}
+                	if(mapa2[3][2]!='&' && mapa2[3][2]!='D'){
+                		mapa2[3][2]='=';
+					}
+					if(mapa2[1][1]!=' '){
+                		mapa2[1][1]='O';
+					}
+					if(mapa2[1][1]!='&'){
+                		mapa2[1][1]=' ';
+					}
                 	
-					
-                	system("cls");
+                	//código do movimento do monstro
+                	moveMon=rand()%4;
+                	if (moveMon == 0){
+                		if(mapa2[moveMonV-1][moveMonH]=='&'){
+                			mapa2[moveVert][moveHori]=' ';
+                			mapa2[moveMonV][moveMonH]=' ';
+                			moveVert=4;
+   							moveHori=18;
+   							moveMonV=12;
+    						moveMonH=1;
+    						mapa2[moveVert][moveHori]='&';
+                			mapa2[moveMonV][moveMonH]='X';
+                			mortes++;
+						}
+                		if(mapa2[moveMonV-1][moveMonH]==' ' || mapa2[moveMonV-1][moveMonH]=='@' || mapa2[moveMonV-1][moveMonH]=='='){
+                        	mapa2[moveMonV-1][moveMonH]='X';
+                        	mapa2[moveMonV][moveMonH]=' ';
+                        	moveMonV--;
+                    	}
+                    }
+                    else if (moveMon == 1){
+                    	if(mapa2[moveMonV+1][moveMonH]=='&'){
+                			mapa2[moveVert][moveHori]=' ';
+                			mapa2[moveMonV][moveMonH]=' ';
+                			moveVert=4;
+   							moveHori=18;
+   							moveMonV=12;
+    						moveMonH=1;
+    						mapa2[moveVert][moveHori]='&';
+                			mapa2[moveMonV][moveMonH]='X';
+                			mortes++;
+						}
+                    	if(mapa2[moveMonV+1][moveMonH]==' ' || mapa2[moveMonV+1][moveMonH]=='@' || mapa2[moveMonV+1][moveMonH]=='='){
+                        	    mapa2[moveMonV+1][moveMonH]='X';
+                        	    mapa2[moveMonV][moveMonH]=' ';
+                        	    moveMonV++;
+                       	}	
+                    }
+                    else if (moveMon == 2){
+                    	if(mapa2[moveMonV][moveMonH+1]=='&'){
+                			mapa2[moveVert][moveHori]=' ';
+                			mapa2[moveMonV][moveMonH]=' ';
+                			moveVert=4;
+   							moveHori=18;
+   							moveMonV=12;
+    						moveMonH=1;
+    						mapa2[moveVert][moveHori]='&';
+                			mapa2[moveMonV][moveMonH]='X';
+                			mortes++;
+						}
+                    	if(mapa2[moveMonV][moveMonH+1]==' ' || mapa2[moveMonV][moveMonH+1]=='@' || mapa2[moveMonV][moveMonH+1]=='='){
+                        	    mapa2[moveMonV][moveMonH+1]='X';
+                            	mapa2[moveMonV][moveMonH]=' ';
+                            	moveMonH++;
+                        	}
+                    }
+                    else if (moveMon == 3){
+                    	if(mapa2[moveMonV][moveMonH-1]=='&'){
+                			mapa2[moveVert][moveHori]=' ';
+                			mapa2[moveMonV][moveMonH]=' ';
+                			moveVert=4;
+   							moveHori=18;
+   							moveMonV=12;
+    						moveMonH=1;
+    						mapa2[moveVert][moveHori]='&';
+                			mapa2[moveMonV][moveMonH]='X';
+                			mortes++;
+						}
+						if(mapa2[moveMonV][moveMonH-1]==' ' || mapa2[moveMonV][moveMonH-1]=='@' || mapa2[moveMonV][moveMonH-1]=='='){
+                            mapa2[moveMonV][moveMonH-1]='X';
+                            mapa2[moveMonV][moveMonH]=' ';
+                            moveMonH--;
+                    	}
+					}
+					system("cls");
                 	for(i2=0;i2<20;i2++){
                    		for(j2=0;j2<20;j2++){
-                    		printf("%c",mapa2[i2][j2]);
+                    		printf("%c ",mapa2[i2][j2]);
                     	}    
                     	printf("\n");
                 	} 
             	}
+            	//FIM DO SEGUNDO MAPA	
 		}
     
         //Tutorial
-        else if(x==2){
+        else if(input==2){
             printf("\n\t@@====================================================@@");
-	      printf("\n\t||****************************************************||\n");
+	    	printf("\n\t||****************************************************||\n");
             printf("\t||****************************************************||\n");
             printf("\t||****************************************************||\n");
-	    printf("\t o Pressione WASD para se mover\n");
+	    	printf("\t o Pressione WASD para se mover\n");
             printf("\t o Aperte I para interagir com o objeto acima de voce\n");
             printf("\t o Se voce tocar em um espinho, voce recomeca a fase(se tocar 3x, o jogo reinicia).\n");
-	    printf("\t o Se um monstro tocar em voce, voce recomeca a fase.\n");
+	    	printf("\t o Se um monstro tocar em voce, voce recomeca a fase.\n");
             printf("\t||****************************************************||\n");
             printf("\t||****************************************************||\n");
 	        printf("\t@@====================================================@@\n\n");
 			
         }
         //Termino
-        else if(x==3){
+        else if(input==3){
             printf("Desligando o jogo...");
         }
    
