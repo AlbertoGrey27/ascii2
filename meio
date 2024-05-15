@@ -1,4 +1,3 @@
-ASCII2    TESTE
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
@@ -6,7 +5,6 @@ ASCII2    TESTE
 int main()
 {   
     int input;
-    char mapa[10][10];
     int i1;
     int j1;
     int i2;
@@ -25,118 +23,19 @@ int main()
     
 	srand(time(0)); //tempo
 	
-	//teto
-    mapa[0][0]='*';
-    mapa[0][1]='*';
-    mapa[0][2]='*';
-    mapa[0][3]='*';
-    mapa[0][4]='D';
-    mapa[0][5]='*';
-    mapa[0][6]='*';
-    mapa[0][7]='*';
-	mapa[0][8]='*';
-    mapa[0][9]='*';
-    //parede esquerda
-    mapa[1][0]='*';
-    mapa[2][0]='*';
-    mapa[3][0]='*';
-    mapa[4][0]='*';
-    mapa[5][0]='*';
-    mapa[6][0]='*';
-    mapa[7][0]='*';
-    mapa[8][0]='*';
-    mapa[9][0]='*';
-    //chão
-    mapa[9][1]='*';
-    mapa[9][2]='*';
-    mapa[9][3]='*';
-    mapa[9][4]='*';
-    mapa[9][5]='*';
-    mapa[9][6]='*';
-    mapa[9][7]='*';
-    mapa[9][8]='*';
-    mapa[9][9]='*';
-    //parede direita
-    mapa[1][9]='*';
-    mapa[2][9]='*';
-    mapa[3][9]='*';
-    mapa[4][9]='*';
-    mapa[5][9]='*';
-    mapa[6][9]='*';
-    mapa[7][9]='*';
-    mapa[8][9]='*';
-    //preenchimento do mapa
-    mapa[1][1]=' ';
-    mapa[1][2]=' ';
-    mapa[1][3]=' ';
-    mapa[1][4]=' ';
-    mapa[1][5]=' ';
-    mapa[1][6]=' ';
-    mapa[1][7]=' ';
-    mapa[1][8]=' ';
-    //2ªlinha
-    mapa[2][1]=' ';
-    mapa[2][2]=' ';
-    mapa[2][3]=' ';
-    mapa[2][4]=' ';
-    mapa[2][5]=' ';
-    mapa[2][6]=' ';
-    mapa[2][7]=' ';
-    mapa[2][8]=' ';
-     //3ªlinha
-    mapa[3][1]=' ';
-    mapa[3][2]=' ';
-    mapa[3][3]=' ';
-    mapa[3][4]=' ';
-    mapa[3][5]=' ';
-    mapa[3][6]=' ';
-    mapa[3][7]=' ';
-    mapa[3][8]=' ';
-    //4ªlinha
-    mapa[4][1]=' ';
-    mapa[4][2]=' ';
-    mapa[4][3]=' ';
-    mapa[4][4]='&';
-    mapa[4][5]=' ';
-    mapa[4][6]=' ';
-    mapa[4][7]=' ';
-    mapa[4][8]=' ';
-    //5ªlinha
-    mapa[5][1]=' ';
-    mapa[5][2]=' ';
-    mapa[5][3]=' ';
-    mapa[5][4]=' ';
-    mapa[5][5]=' ';
-    mapa[5][6]=' ';
-    mapa[5][7]=' ';
-    mapa[5][8]=' ';
-    //6ªlinha
-    mapa[6][1]=' ';
-    mapa[6][2]=' ';
-    mapa[6][3]=' ';
-    mapa[6][4]=' ';
-    mapa[6][5]=' ';
-    mapa[6][6]=' ';
-    mapa[6][7]=' ';
-    mapa[6][8]=' ';
-    //7ªlinha
-    mapa[7][1]=' ';
-    mapa[7][2]=' ';
-    mapa[7][3]=' ';
-    mapa[7][4]=' ';
-    mapa[7][5]=' ';
-    mapa[7][6]=' ';
-    mapa[7][7]=' ';
-    mapa[7][8]=' ';
-    //8ªlinha
-    mapa[8][1]='@';
-    mapa[8][2]=' ';
-    mapa[8][3]=' ';
-    mapa[8][4]=' ';
-    mapa[8][5]=' ';
-	mapa[8][6]=' ';
-    mapa[8][7]=' ';
-    mapa[8][8]=' ';
+	//primeiro mapa
+	char mapa[10][10] = {
+	"****D*****",
+	"*        *",
+	"*        *",
+	"*        *",
+	"*   &    *",
+	"**** *****",
+	"*  *   * *",
+	"*  *** * *",
+	"* @    * *",
+	"**********"
+	};
     //prenchimento do mapa2
     char mapa2[20][20] = {
 	 "**************=*****",
@@ -160,7 +59,7 @@ int main()
 	 "*  @         *  O  *",
 	 "********************"
 	 };
-	 char mapa2[40][40] = {
+	 char mapa3[40][40] = {
 	 "****************************************",
 	 "*                                      *",
 	 "*                                      *",
@@ -200,7 +99,7 @@ int main()
 	 "*                                      *",
 	 "*                                      *",
 	 "****************************************",
-	 }
+	 };
 	
 	mortes=0;
     input=0;
@@ -312,6 +211,10 @@ int main()
     						mapa2[moveVert][moveHori]='&';
                 			mapa2[moveMonV][moveMonH]='X';
                 			mortes++;
+                			mapa2[16][16]='#';
+                			mapa2[1][14]='#';
+                			mapa2[18][3]='@';
+                			mapa2[3][2]='D';
 						}
                     	if(mapa2[moveVert-1][moveHori]==' ' || mapa2[moveVert-1][moveHori]=='@' || mapa2[moveVert-1][moveHori]=='=' || mapa2[moveVert-1][moveHori]=='O'){
                         	mapa2[moveVert-1][moveHori]='&';
@@ -330,6 +233,10 @@ int main()
     							mapa2[moveVert][moveHori]='&';
                 				mapa2[moveMonV][moveMonH]='X';
                 				mortes++;
+                				mapa2[16][16]='#';
+                				mapa2[1][14]='#';
+                				mapa2[18][3]='@';
+                				mapa2[3][2]='D';
 							}
                     	    if(mapa2[moveVert+1][moveHori]==' ' || mapa2[moveVert+1][moveHori]=='@' || mapa2[moveVert+1][moveHori]=='=' || mapa2[moveVert+1][moveHori]=='O'){
                         	    mapa2[moveVert+1][moveHori]='&';
@@ -348,6 +255,10 @@ int main()
     							mapa2[moveVert][moveHori]='&';
                 				mapa2[moveMonV][moveMonH]='X';
                 				mortes++;
+                				mapa2[16][16]='#';
+                				mapa2[1][14]='#';
+                				mapa2[18][3]='@';
+                				mapa2[3][2]='D';
 							}
                     	    if(mapa2[moveVert][moveHori+1]==' ' || mapa2[moveVert][moveHori+1]=='@' || mapa2[moveVert][moveHori+1]=='=' || mapa2[moveVert][moveHori+1]=='O'){
                         	    mapa2[moveVert][moveHori+1]='&';
@@ -366,6 +277,10 @@ int main()
     							mapa2[moveVert][moveHori]='&';
                 				mapa2[moveMonV][moveMonH]='X';
                 				mortes++;
+                				mapa2[16][16]='#';
+                				mapa2[1][14]='#';
+                				mapa2[18][3]='@';
+                				mapa2[3][2]='D';
 							}
                     	    if(mapa2[moveVert][moveHori-1]==' ' || mapa2[moveVert][moveHori-1]=='@' || mapa2[moveVert][moveHori-1]=='=' || mapa2[moveVert][moveHori-1]=='O'){
                             mapa2[moveVert][moveHori-1]='&';
@@ -378,7 +293,7 @@ int main()
                 			mapa2[3][2]='=';
 						}
 					}
-                	if(mapa2[3][2]!='&' && mapa2[3][2]!='D'){
+                	if(mapa2[3][2]==' '){
                 		mapa2[3][2]='=';
 					}
 					if(mapa2[1][1]==' '){
@@ -411,7 +326,7 @@ int main()
                 			mapa2[moveMonV][moveMonH]='X';
                 			mortes++;
 						}
-                		if(mapa2[moveMonV-1][moveMonH]==' ' || mapa2[moveMonV-1][moveMonH]=='@' || mapa2[moveMonV-1][moveMonH]=='='){
+                		if(mapa2[moveMonV-1][moveMonH]==' ' || mapa2[moveMonV-1][moveMonH]=='='){
                         	mapa2[moveMonV-1][moveMonH]='X';
                         	mapa2[moveMonV][moveMonH]=' ';
                         	moveMonV--;
@@ -429,7 +344,7 @@ int main()
                 			mapa2[moveMonV][moveMonH]='X';
                 			mortes++;
 						}
-                    	if(mapa2[moveMonV+1][moveMonH]==' ' || mapa2[moveMonV+1][moveMonH]=='@' || mapa2[moveMonV+1][moveMonH]=='='){
+                    	if(mapa2[moveMonV+1][moveMonH]==' ' || mapa2[moveMonV+1][moveMonH]=='='){
                         	    mapa2[moveMonV+1][moveMonH]='X';
                         	    mapa2[moveMonV][moveMonH]=' ';
                         	    moveMonV++;
@@ -447,7 +362,7 @@ int main()
                 			mapa2[moveMonV][moveMonH]='X';
                 			mortes++;
 						}
-                    	if(mapa2[moveMonV][moveMonH+1]==' ' || mapa2[moveMonV][moveMonH+1]=='@' || mapa2[moveMonV][moveMonH+1]=='='){
+                    	if(mapa2[moveMonV][moveMonH+1]==' ' || mapa2[moveMonV][moveMonH+1]=='='){
                         	    mapa2[moveMonV][moveMonH+1]='X';
                             	mapa2[moveMonV][moveMonH]=' ';
                             	moveMonH++;
@@ -465,7 +380,7 @@ int main()
                 			mapa2[moveMonV][moveMonH]='X';
                 			mortes++;
 						}
-						if(mapa2[moveMonV][moveMonH-1]==' ' || mapa2[moveMonV][moveMonH-1]=='@' || mapa2[moveMonV][moveMonH-1]=='='){
+						if(mapa2[moveMonV][moveMonH-1]==' ' || mapa2[moveMonV][moveMonH-1]=='='){
                             mapa2[moveMonV][moveMonH-1]='X';
                             mapa2[moveMonV][moveMonH]=' ';
                             moveMonH--;
@@ -500,7 +415,19 @@ int main()
         }
         //Termino
         else if(input==3){
-            printf("Desligando o jogo...");
+            	printf("@--------------------------------------------------------------------@\n");
+				printf("|====================================================================|\n");
+				printf("|=======  ***   *****   *****   *  *****   ****    ***   ***  =======|\n");
+				printf("|======  *   *  *   *   *   *   *  *      *    *   *  * *   *  ======|\n");
+				printf("|======  *   *  *  *    ****    *  *   *  ******   *  * *   *  ======|\n");
+				printf("|=======  ***   *****   *   *   *  *****  *    *   ***   ***  =======|\n");
+				printf("|====================================================================|\n");
+				printf("|======= *****  ***   *****     *****  ***  *****   ****  ***** =====|\n");
+				printf("|======  *   * *   *  *   *       *   *   * *      *    * *   *  ====|\n");
+				printf("|======  ****  *   *  ****     *  *   *   * *   *  ****** ****   ====|\n");
+				printf("|======= *      ***   *   *     ***    ***  *****  *    * *   * =====|\n");
+				printf("|====================================================================|\n");
+				printf("@--------------------------------------------------------------------@\n");
         }
    
    }
