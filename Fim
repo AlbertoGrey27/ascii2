@@ -478,7 +478,7 @@ int main()
                			mapa3[moveMonV][moveMonH]='X';
                			mortes++;
                			mapa3[32][37]='@';
-               			mapa3[30][19]='=';
+               			mapa3[30][19]='D';
 					}
                    	if(mapa3[moveVert-1][moveHori]==' ' || mapa3[moveVert-1][moveHori]=='@' || mapa3[moveVert-1][moveHori]=='=' || mapa3[moveVert-1][moveHori]=='O' || mapa3[moveVert-1][moveHori]=='>'){
                        	mapa3[moveVert-1][moveHori]='&';
@@ -498,7 +498,7 @@ int main()
                				mapa3[moveMonV][moveMonH]='X';
                				mortes++;
                				mapa3[32][37]='@';
-               				mapa3[30][19]='=';
+               				mapa3[30][19]='D';
                				
 						}
                    	    if(mapa3[moveVert+1][moveHori]==' ' || mapa3[moveVert+1][moveHori]=='@' || mapa3[moveVert+1][moveHori]=='=' || mapa3[moveVert+1][moveHori]=='O' || mapa3[moveVert+1][moveHori]=='>'){
@@ -519,7 +519,7 @@ int main()
            				mapa3[moveMonV][moveMonH]='X';
            				mortes++;
            				mapa3[32][37]='@';
-           				mapa3[30][19]='=';
+           				mapa3[30][19]='D';
                				
 					}
                	    if(mapa3[moveVert][moveHori+1]==' ' || mapa3[moveVert][moveHori+1]=='@' || mapa3[moveVert][moveHori+1]=='=' || mapa3[moveVert][moveHori+1]=='O' || mapa3[moveVert][moveHori+1]=='>'){
@@ -540,7 +540,7 @@ int main()
                				mapa3[moveMonV][moveMonH]='X';
                				mortes++;
                				mapa3[32][37]='@';
-               				mapa3[30][19]='=';
+               				mapa3[30][19]='D';
                				
 						}
                    	    if(mapa3[moveVert][moveHori-1]==' ' || mapa3[moveVert][moveHori-1]=='@' || mapa3[moveVert][moveHori-1]=='=' || mapa3[moveVert][moveHori-1]=='O' || mapa3[moveVert][moveHori-1]=='>'){
@@ -550,7 +550,9 @@ int main()
                        	}
                	}
                	else if(move=='i' || move == 'I'){ //interação
-               		
+               		if(mapa3[32][37]=' ' && mapa3[31][19]='&';){
+               				mapa3[30][19]='=';
+					   }
 				}
 				//8,5 tp
 				//38,5 tp
@@ -579,7 +581,7 @@ int main()
            				mapa3[moveMonV][moveMonH]='X';
            				mortes++;
            				mapa3[32][37]='@';
-           				mapa3[30][19]='=';
+           				mapa3[30][19]='D';
 					}
                 	if(mapa3[moveMonV-1][moveMonH]==' ' || mapa3[moveMonV-1][moveMonH]=='='){
                        	mapa3[moveMonV-1][moveMonH]='X';
@@ -599,7 +601,7 @@ int main()
                			mapa3[moveMonV][moveMonH]='X';
                			mortes++;
                			mapa3[32][37]='@';
-               			mapa3[30][19]='=';
+               			mapa3[30][19]='D';
 					}
                    	if(mapa3[moveMonV+1][moveMonH]==' ' || mapa3[moveMonV+1][moveMonH]=='='){
                    	    mapa3[moveMonV+1][moveMonH]='X';
@@ -619,7 +621,7 @@ int main()
                			mapa3[moveMonV][moveMonH]='X';
                			mortes++;
                			mapa3[32][37]='@';
-               			mapa3[30][19]='=';
+               			mapa3[30][19]='D';
 					}
                    	if(mapa3[moveMonV][moveMonH+1]==' ' || mapa3[moveMonV][moveMonH+1]=='='){
                        	    mapa3[moveMonV][moveMonH+1]='X';
@@ -639,7 +641,7 @@ int main()
                			mapa3[moveMonV][moveMonH]='X';
                			mortes++;
                			mapa3[32][37]='@';
-               			mapa3[30][19]='=';
+               			mapa3[30][19]='D';
 					}
 					if(mapa3[moveMonV][moveMonH-1]==' ' || mapa3[moveMonV][moveMonH-1]=='='){
     					mapa3[moveMonV][moveMonH-1]='X';
