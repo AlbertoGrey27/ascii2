@@ -683,7 +683,7 @@ int main()
                         moveMonV2++;
                    		}	
 					}
-					else if(moveMonV2>moveVert){
+					else{
 						if(mapa3[moveMonV2-1][moveMonH2]==' ' || mapa3[moveMonV2-1][moveMonH2]=='='){
                        	mapa3[moveMonV2-1][moveMonH2]='V';
                        	mapa3[moveMonV2][moveMonH2]=' ';
@@ -699,7 +699,7 @@ int main()
                            	moveMonH2++;
                     	}
 					}
-					else if(moveMonH2>moveHori){
+					else{
                			if(mapa3[moveMonV2][moveMonH2-1]==' ' || mapa3[moveMonV2][moveMonH2-1]=='='){
 	    					mapa3[moveMonV2][moveMonH2-1]='V';
 	                 		mapa3[moveMonV2][moveMonH2]=' ';
