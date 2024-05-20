@@ -463,9 +463,7 @@ int main()
                	printf("\n");
            	}
            	for(cont_mapa3=0;cont_mapa3<1 && mortes<3 ;){
-           		//1,38 player
-           		//4,13 monstro
-           		//32,37 chave
+           		
 			
 				move=getch(); //movimentação
                	if(move=='w'|| move == 'W' ){
@@ -556,7 +554,18 @@ int main()
 				}
 				//8,5 tp
 				//38,5 tp
-				if()
+				if(mapa3[8][5]=='&'){
+					mapa3[moveVert][moveHori]='>';
+					moveVert=37;
+   					moveHori=5;
+   					mapa3[moveVert][moveHori]='&';
+				}
+				else if(mapa3[38][5]=='&'){
+					mapa3[moveVert][moveHori]='>';
+					moveVert=7;
+   					moveHori=5;
+   					mapa3[moveVert][moveHori]='&';
+				}
 				moveMon=rand()%4;
             	if (moveMon == 0){
                		if(mapa3[moveMonV-1][moveMonH]=='&'){
