@@ -78,8 +78,8 @@ int main()
 	 "*                         #            *",
 	 "****************************************",
 	 "*                                #T#   *",//11,34 tesouro
-	 "*                                 V    *",//12,34 monstro2
-	 "*                                      *",
+	 "*                                #V#   *",//12,34 monstro2
+	 "*                                 #    *",// 11,33 11,35 12,33 12,35 13,34 espinhos
 	 "*                                      *",
 	 "*                                      *",
 	 "*                                      *",
@@ -114,7 +114,7 @@ int main()
     j1=0;
     moveVert=4;
     moveHori=4;
-    for(input=0;input!=3;){
+    for(input=0;input!=3 && cont_mapa3==0;){
        //menu de começo
        
 		printf("@=====================@\n");
@@ -488,7 +488,7 @@ int main()
                			mapa3[32][37]='@';
                			mapa3[30][19]='D';
 					}
-                   	if(mapa3[moveVert-1][moveHori]==' ' || mapa3[moveVert-1][moveHori]=='@' || mapa3[moveVert-1][moveHori]=='=' || mapa3[moveVert-1][moveHori]=='O' || mapa3[moveVert-1][moveHori]=='>'){
+                   	if(mapa3[moveVert-1][moveHori]==' ' || mapa3[moveVert-1][moveHori]=='@' || mapa3[moveVert-1][moveHori]=='=' || mapa3[moveVert-1][moveHori]=='O' || mapa3[moveVert-1][moveHori]=='>' || mapa3[moveVert-1][moveHori]=='T'){
                        	mapa3[moveVert-1][moveHori]='&';
                        	mapa3[moveVert][moveHori]=' ';
                        	moveVert--;
@@ -509,7 +509,7 @@ int main()
                				mapa3[30][19]='D';
                				
 						}
-                   	    if(mapa3[moveVert+1][moveHori]==' ' || mapa3[moveVert+1][moveHori]=='@' || mapa3[moveVert+1][moveHori]=='=' || mapa3[moveVert+1][moveHori]=='O' || mapa3[moveVert+1][moveHori]=='>'){
+                   	    if(mapa3[moveVert+1][moveHori]==' ' || mapa3[moveVert+1][moveHori]=='@' || mapa3[moveVert+1][moveHori]=='=' || mapa3[moveVert+1][moveHori]=='O' || mapa3[moveVert+1][moveHori]=='>' || mapa3[moveVert+1][moveHori]=='T'){
                        	    mapa3[moveVert+1][moveHori]='&';
                        	    mapa3[moveVert][moveHori]=' ';
                        	    moveVert++;
@@ -530,7 +530,7 @@ int main()
            				mapa3[30][19]='D';
                				
 					}
-               	    if(mapa3[moveVert][moveHori+1]==' ' || mapa3[moveVert][moveHori+1]=='@' || mapa3[moveVert][moveHori+1]=='=' || mapa3[moveVert][moveHori+1]=='O' || mapa3[moveVert][moveHori+1]=='>'){
+               	    if(mapa3[moveVert][moveHori+1]==' ' || mapa3[moveVert][moveHori+1]=='@' || mapa3[moveVert][moveHori+1]=='=' || mapa3[moveVert][moveHori+1]=='O' || mapa3[moveVert][moveHori+1]=='>' || mapa3[moveVert][moveHori+1]=='T'){
                    	    mapa3[moveVert][moveHori+1]='&';
                        	mapa3[moveVert][moveHori]=' ';
                        	moveHori++;
@@ -551,7 +551,7 @@ int main()
                				mapa3[30][19]='D';
                				
 						}
-                   	    if(mapa3[moveVert][moveHori-1]==' ' || mapa3[moveVert][moveHori-1]=='@' || mapa3[moveVert][moveHori-1]=='=' || mapa3[moveVert][moveHori-1]=='O' || mapa3[moveVert][moveHori-1]=='>'){
+                   	    if(mapa3[moveVert][moveHori-1]==' ' || mapa3[moveVert][moveHori-1]=='@' || mapa3[moveVert][moveHori-1]=='=' || mapa3[moveVert][moveHori-1]=='O' || mapa3[moveVert][moveHori-1]=='>' || mapa3[moveVert][moveHori-1]=='T'){
                            mapa3[moveVert][moveHori-1]='&';
                            mapa3[moveVert][moveHori]=' ';
                            moveHori--;
@@ -563,7 +563,10 @@ int main()
 					}
 				}
 				if(mapa3[30][19]==' ' && mapa3[30][19]!='D'){
-               				mapa3[30][19]='=';
+               		mapa3[30][19]='=';
+				}
+				if(mapa3[29][1]==' '){
+               		mapa3[29][1]='O';
 				}
 				//8,5 tp
 				//38,5 tp
@@ -578,6 +581,16 @@ int main()
 					moveVert=7;
    					moveHori=5;
    					mapa3[moveVert][moveHori]='&';
+				}
+				if(mapa3[29][1]=='&'){
+					mapa3[11][33]=' ';
+					mapa3[11][35]=' ';
+					mapa3[12][33]=' ';
+					mapa3[12][35]=' ';
+					mapa3[13][34]=' ';
+				}
+				if(mapa3[11][34]=='&'){
+					cont_mapa3++;
 				}
 				moveMon=rand()%4;
             	if (moveMon == 0){
