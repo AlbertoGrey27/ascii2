@@ -16,8 +16,11 @@ int main()
     int moveVert;
     int moveHori;
     int moveMon;
+    int moveMon2;
 	int moveMonV;
     int moveMonH;
+    int moveMonV2;
+    int moveMonH2;
     int cont_mapa;
     int cont_mapa2;
     int cont_mapa3;
@@ -74,6 +77,8 @@ int main()
 	 "*    >                    #            *",//8,5 tp
 	 "*                         #            *",
 	 "****************************************",
+	 "*                                #T#   *",//11,34 tesouro
+	 "*                                 V    *",//12,34 monstro2
 	 "*                                      *",
 	 "*                                      *",
 	 "*                                      *",
@@ -90,10 +95,8 @@ int main()
 	 "*                                      *",
 	 "*                                      *",
 	 "*                                      *",
-	 "*                                      *",
-	 "*                                      *",
-	 "*                                      *",
-	 "******************D*********************",//30,19 porta
+	 "*O                                     *",//29,1 botão
+	 "*******************D********************",//30,19 porta
 	 "*                        ##############*",
 	 "*                        #      #    @#*",//32,37 chave
 	 "*                        # #### # #####*",
@@ -454,6 +457,11 @@ int main()
    			moveHori=38;
    			moveMonV=4;
     		moveMonH=13;
+    		moveMonV2=12;
+    		moveMonH2=34;
+    		mapa3[32][37]='@';
+			mapa3[30][19]='D';
+			
    			
    			system("cls");
    			for(i3=0;i3<40;i3++){
@@ -467,7 +475,7 @@ int main()
 			
 				move=getch(); //movimentação
                	if(move=='w'|| move == 'W' ){
-               		if(mapa3[moveVert-1][moveHori]=='#' || mapa3[moveVert-1][moveHori]=='X'){
+               		if(mapa3[moveVert-1][moveHori]=='#' || mapa3[moveVert-1][moveHori]=='X' || mapa3[moveVert-1][moveHori]=='V'){
                			mapa3[moveVert][moveHori]=' ';
                			mapa3[moveMonV][moveMonH]=' ';
                			moveVert=1;
@@ -487,7 +495,7 @@ int main()
                    	}
                	}
                	else if(move=='s' || move == 'S'){
-              			if(mapa3[moveVert+1][moveHori]=='#' || mapa3[moveVert+1][moveHori]=='X'){
+              			if(mapa3[moveVert+1][moveHori]=='#' || mapa3[moveVert+1][moveHori]=='X' || mapa3[moveVert+1][moveHori]=='V'){
                 			mapa3[moveVert][moveHori]=' ';
                				mapa3[moveMonV][moveMonH]=' ';
                				moveVert=1;
@@ -508,7 +516,7 @@ int main()
                        	}
                	}
                	else if(move=='d' || move == 'D'){
-               		if(mapa3[moveVert][moveHori+1]=='#' || mapa3[moveVert][moveHori+1]=='X'){
+               		if(mapa3[moveVert][moveHori+1]=='#' || mapa3[moveVert][moveHori+1]=='X' || mapa3[moveVert][moveHori+1]=='V'){
            				mapa3[moveVert][moveHori]=' ';
            				mapa3[moveMonV][moveMonH]=' ';
            				moveVert=1;
@@ -529,7 +537,7 @@ int main()
                    	}
                	}
                	else if(move=='a' || move == 'A'){
-              			if(mapa3[moveVert][moveHori-1]=='#' || mapa3[moveVert][moveHori-1]=='X'){
+              			if(mapa3[moveVert][moveHori-1]=='#' || mapa3[moveVert][moveHori-1]=='X' || mapa3[moveVert][moveHori-1]=='V'){
                				mapa3[moveVert][moveHori]=' ';
                				mapa3[moveMonV][moveMonH]=' ';
                				moveVert=1;
@@ -550,9 +558,12 @@ int main()
                        	}
                	}
                	else if(move=='i' || move == 'I'){ //interação
-               		if(mapa3[32][37]=' ' && mapa3[31][19]='&';){
+               		if(mapa3[32][37]==' ' && mapa3[31][19]=='&'){
                				mapa3[30][19]='=';
-					   }
+					}
+				}
+				if(mapa3[30][19]==' ' && mapa3[30][19]!='D'){
+               				mapa3[30][19]='=';
 				}
 				//8,5 tp
 				//38,5 tp
@@ -648,6 +659,41 @@ int main()
                  		mapa3[moveMonV][moveMonH]=' ';
                         moveMonH--;
                     }
+				}
+				//MONSTRO 2
+				moveMon2=rand()%2;
+            	if (moveMon2 == 0){
+               		if(moveMonV2<moveVert){
+               			if(mapa3[moveMonV2+1][moveMonH2]==' ' || mapa3[moveMonV2+1][moveMonH2]=='='){
+                   	    mapa3[moveMonV2+1][moveMonH2]='V';
+                 	    mapa3[moveMonV2][moveMonH2]=' ';
+                        moveMonV2++;
+                   		}	
+					}
+					else if(moveMonV2>moveVert){
+						if(mapa3[moveMonV2-1][moveMonH2]==' ' || mapa3[moveMonV2-1][moveMonH2]=='='){
+                       	mapa3[moveMonV2-1][moveMonH2]='V';
+                       	mapa3[moveMonV2][moveMonH2]=' ';
+                      	moveMonV2--;
+                   		}
+					}
+                }
+                else if (moveMon2 == 1){
+                	if(moveMonH2<moveHori){
+               			if(mapa3[moveMonV2][moveMonH2+1]==' ' || mapa3[moveMonV2][moveMonH2+1]=='='){
+                       	    mapa3[moveMonV2][moveMonH2+1]='V';
+                           	mapa3[moveMonV2][moveMonH2]=' ';
+                           	moveMonH2++;
+                    	}
+					}
+					else if(moveMonH2>moveHori){
+               			if(mapa3[moveMonV2][moveMonH2-1]==' ' || mapa3[moveMonV2][moveMonH2-1]=='='){
+	    					mapa3[moveMonV2][moveMonH2-1]='V';
+	                 		mapa3[moveMonV2][moveMonH2]=' ';
+	                        moveMonH2--;
+                    	}
+					}
+                   	
 				}
       			system("cls"); //limpa
 		
