@@ -203,8 +203,6 @@ int main()
             
             i2=0;
     		j2=0;
-    		mapa2[moveVert][moveHori]=' ';
-            mapa2[moveMonV][moveMonH]=' ';
             moveVert=4;
    			moveHori=18;
    			moveMonV=12;
@@ -562,6 +560,9 @@ int main()
                				mapa3[30][19]='=';
 					}
 				}
+				else if(move=='v'){
+					cont_mapa3++;
+				}
 				if(mapa3[30][19]==' ' && mapa3[30][19]!='D'){
                		mapa3[30][19]='=';
 				}
@@ -779,8 +780,28 @@ int main()
 				printf("|======= *      ***   *   *     ***    ***  *****  *    * *   * =====|\n");
 				printf("|====================================================================|\n");
 				printf("@--------------------------------------------------------------------@\n");
+				break;
         }
    
    }
+	if(cont_mapa3==1){
+		printf("                                                                                                                 \n");
+		printf("                                                                                                                 \n");
+		printf("                                         #                                                                       \n");
+		printf("                                        #                                                                        \n");
+		printf("    ##          ##  ##  ##########   ########    ########  ##       #                                            \n");
+		printf("     ##        ##   ##      ##      #        #   ##     #  ##      # #                                           \n");
+		printf("      ##      ##    ##      ##      #        #   ##    #   ##     #   #                                          \n");
+		printf("       ##    ##     ##      ##      #        #   ######    ##    #######                                         \n");
+		printf("        ##  ##      ##      ##      #        #   ##   ##   ##   ##     ##                                        \n");
+		printf("          ##        ##      ##       ########    ##    ##  ##  ##       ##                                       \n");
+		printf("                                                                                                                 \n");
+		printf("                                                                                                                 \n");
+		printf("                                                                                                                 \n");
+		printf("                                                                                                                 \n");
+		printf("                                                                                                                 \n");
+   
+	}
+   	
     return 0;
 }
